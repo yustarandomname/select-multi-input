@@ -6,7 +6,7 @@
 	let videoOptions: MediaDeviceInfo[] = []; // video ids as list
 
 	async function getStream() {
-		const deviceId = videoSelected ? { exact: videoSelected } : { facingMode: 'environment' };
+		const deviceId = videoSelected ? {deviceId: { exact: videoSelected }} : { facingMode: 'environment' };
 
 		const constraints = {
 			video: deviceId
