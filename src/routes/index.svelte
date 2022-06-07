@@ -32,7 +32,15 @@
 </script>
 
 <!-- svelte-ignore a11y-media-has-caption -->
-<video bind:this={videoSource} />
+<video 
+loop
+playsInline
+autoPlay={false}
+controls={false}
+preload="auto"
+type="video/mp4" 
+bind:this={videoSource} />
+
 <select bind:value={videoSelected} on:change={getStream}>
 	{#each videoOptions as option, index}
 		<option value={option}>
