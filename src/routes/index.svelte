@@ -6,7 +6,7 @@
 	let videoOptions: MediaDeviceInfo[] = []; // video ids as list
 
 	async function getStream() {
-		const deviceId = videoSelected ? {deviceId: { exact: videoSelected }} : { facingMode: 'environment' };
+		const deviceId = videoSelected ? {deviceId: videoSelected.deviceId } : { facingMode: 'environment' };
 
 		const constraints = {
 			video: deviceId
@@ -24,7 +24,7 @@
 	}
 
 	onMount(async () => {
-		const stream = await getStream();
+		await getStream();
 		const devices = await navigator.mediaDevices.enumerateDevices();
 		videoOptions = devices.filter((device) => device.kind == 'videoinput');
 		console.log(videoOptions.length);
